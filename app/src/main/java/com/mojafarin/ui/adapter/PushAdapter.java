@@ -52,7 +52,9 @@ public class PushAdapter
         Notify param = (Notify) data_list.get(position);
         holder.txtTitle.setText(param.title);
         if (param.view == 0) {
-            holder.txtTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.notify, 0, 0, 0);
+            // TODO: 8/13/18 complete this section later
+//            holder.txtTitle.setCompoundDrawablesWithIntrinsicBounds(R.drawable.notify, 0, 0, 0);
+            holder.txtTitle.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         } else {
             holder.txtTitle.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         }

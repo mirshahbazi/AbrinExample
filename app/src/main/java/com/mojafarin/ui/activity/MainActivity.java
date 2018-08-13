@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.mojafarin.Modal.Notify;
 import com.mojafarin.R;
+import com.mojafarin.db.DatabaseHandler;
 
 import ir.abrin.entities.AbrinMessage;
 import ir.abrin.entities.PresenceEventResult;
@@ -42,6 +44,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, PushActivity.class));
+//                new DatabaseHandler(MainActivity.this).addNotify(new Notify("4534945d1863484396ecf0cf84459f111","mam","salam","","",0));
             }
         });
 

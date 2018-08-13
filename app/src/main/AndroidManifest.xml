@@ -46,9 +46,9 @@
             android:value="T7kMz2RjRGZlpgFYHzMJrExeYmH2oFauJwdkPyj3auO2TRhb" />
         <meta-data
             android:name="ir.abrin.ncloud.v1.HANDLER_CLASS"
-            android:value="com.mojafarin.PushIntentService" />
+            android:value="com.mojafarin.ui.service.PushIntentService" />
 
-        <service android:name=".ui.service.PushIntentService" />
+        <service android:name="com.mojafarin.ui.service.PushIntentService" />
         <service
             android:name="ir.abrin.service.NCenter"
             android:enabled="true"

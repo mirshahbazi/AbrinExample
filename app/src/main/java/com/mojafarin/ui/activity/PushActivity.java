@@ -60,7 +60,7 @@ public class PushActivity
         this.dialog_msg.setContentView(R.layout.dialog_msg);
         this.dialog_msg.setCancelable(true);
         this.dialog_msg.getWindow().setLayout(-1, -1);
-        new DatabaseHandler(this).viewNews(paramNotify.id);
+     //   new DatabaseHandler(this).viewNews(paramNotify.id);
         this.dataList = new DatabaseHandler(this).getNotify();
         this.adapter = new PushAdapter(this, R.layout.news_item, this.dataList);
         this.list.setAdapter(this.adapter);
