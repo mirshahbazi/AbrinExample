@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mojafarin">
+
+    <permission
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:name="com.mojafarin.permission.ABRIN_MESSAGING"
+        android:label="mojafarin"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.mojafarin.permission.ABRIN_MESSAGING" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23" />
+
+    <application
+        android:name=".app.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="mojafarin"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.MainActivity" android:label="mojafarin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.PushActivity" />
+
+
+        <meta-data
+            android:name="ir.abrin.ncloud.v1.APP_ID"
+            android:value="T7kMz2RjRGZlpgFYHzMJrExeYmH2oFauJwdkPyj3auO2TRhb" />
+        <meta-data
+            android:name="ir.abrin.ncloud.v1.HANDLER_CLASS"
+            android:value="com.mojafarin.PushIntentService" />
+
+        <service android:name=".ui.service.PushIntentService" />
+        <service
+            android:name="ir.abrin.service.NCenter"
+            android:enabled="true"
+            android:exported="false"
+            android:icon="@drawable/ic_abrin"
+            android:label="NetworkDispatcher"
+            android:logo="@drawable/ic_abrin">
+            <intent-filter>
+                <action android:name="ir.abrin.NetworkDispatcher" >
+                </action>
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="ir.abrin.service.AbrinBroadcastReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="ir.abrin.intent.INITIATE" />
+                <action android:name="T7kMz2RjRGZlpgFYHzMJrExeYmH2oFauJwdkPyj3auO2TRhb.EVENT" />
+                <action android:name="T7kMz2RjRGZlpgFYHzMJrExeYmH2oFauJwdkPyj3auO2TRhb.RECEIVE" />
+                <action android:name="T7kMz2RjRGZlpgFYHzMJrExeYmH2oFauJwdkPyj3auO2TRhb.ERROR" />
+                <action android:name="T7kMz2RjRGZlpgFYHzMJrExeYmH2oFauJwdkPyj3auO2TRhb.REGISTRATION" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
