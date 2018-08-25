@@ -7,9 +7,10 @@ android {
         minSdkVersion 15
         targetSdkVersion 19
         versionCode 1
-        versionName "1.0.2"
+        versionName "1.0.3"
         //1.0.1 1397.05.22 => show push view in list
         //1.0.2 1397.05.22 => query to clean duplicate raw and fix some view
+        //1.0.3 1397.06.02 => add the device id in main page
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

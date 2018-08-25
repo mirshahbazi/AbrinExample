@@ -38,6 +38,7 @@ public class PushIntentService extends AbrinBaseIntentService {
     @Override
     public void onRegistered(Context context, String registrationId) {
 //    	AbrinCloudService.getInstance(this).addTag(1, "تست");
+
     }
 
     @Override

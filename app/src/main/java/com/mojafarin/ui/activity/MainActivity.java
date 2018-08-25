@@ -2,10 +2,14 @@ package com.mojafarin.ui.activity;
 
 
 import android.app.Activity;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mojafarin.Modal.Notify;
@@ -39,6 +43,7 @@ public class MainActivity extends Activity {
 		System.err.println(AbrinCloudService.getInstance(this).getInstallId());
 		AbrinCloudService.getInstance(this).addListener(listener);
 		AbrinCloudService.getInstance(this).addListenerAsync(listenerAsync );
+
         logBtn = (Button) findViewById(R.id.showLogBtn);
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +52,22 @@ public class MainActivity extends Activity {
 //                new DatabaseHandler(MainActivity.this).addNotify(new Notify("4534945d1863484396ecf0cf84459f111","mam","salam","","",0));
             }
         });
+        try {
+			final TextView deviceId = (TextView) findViewById(R.id.deviceidTv);
+			deviceId.setText(AbrinCloudService.getInstance(this).getInstallId());
+			deviceId.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+					ClipboardManager cm = (ClipboardManager)getApplication().getSystemService(Context.CLIPBOARD_SERVICE);
+					cm.setText(deviceId.getText());
+					Toast.makeText(getApplicationContext(), "Copied to clipboard", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+		}
+		catch (Exception ex){
+			Toast.makeText(this, "can not fetch the device id", Toast.LENGTH_SHORT).show();
+		}
 
     }
 
